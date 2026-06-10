@@ -1,5 +1,5 @@
 {
-  "phase": "INTERROGATED",
+  "phase": "VOTED",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
@@ -162,8 +162,170 @@
       "defer_to_probe": true
     }
   ],
+  "dim_tallies": [
+    {
+      "dimension": "D1",
+      "title": "Responsive strategy",
+      "stakes": "HIGH",
+      "winner": "b",
+      "winner_label": "Mobile-first responsive (phone → desktop)",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D2",
+      "title": "Mark rendering",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Plain text characters styled with CSS",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D3",
+      "title": "Result announcement method",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Inline text replacing turn indicator",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D4",
+      "title": "Mid-game restart safeguard",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Instant reset, no confirmation",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "a": 100
+      },
+      "votes": {
+        "alice": "a",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D5",
+      "title": "Board visual style",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Minimal hairline grid",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D6",
+      "title": "Color palette",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "Monochrome (black/white/gray)",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D7",
+      "title": "Cell hover \u0026 placement feel",
+      "stakes": "LOW",
+      "winner": "a",
+      "winner_label": "No hover effect",
+      "weighted_pct": 50,
+      "status": "deferred",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    }
+  ],
   "delta_loops": 0,
-  "sessions": 3,
+  "sessions": 6,
   "history": [
     {
       "from": "IDLE",
@@ -176,6 +338,12 @@
       "to": "INTERROGATED",
       "at": "2026-06-10T20:42:43.199943Z",
       "note": "questionnaire #3 (7 dims), feature PR #2"
+    },
+    {
+      "from": "INTERROGATED",
+      "to": "VOTED",
+      "at": "2026-06-10T20:44:41.774714Z",
+      "note": "7 dims tallied, deferred: D2,D3,D5,D6,D7"
     }
   ]
 }
