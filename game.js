@@ -38,6 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
     cell.textContent = currentPlayer;
   }
 
+  function checkWin() {
+    for (var i = 0; i < WINNING_COMBOS.length; i++) {
+      var combo = WINNING_COMBOS[i];
+      if (board[combo[0]] === currentPlayer &&
+          board[combo[1]] === currentPlayer &&
+          board[combo[2]] === currentPlayer) {
+        return combo;
+      }
+    }
+    return null;
+  }
+
   function init() {
     boardEl.addEventListener('click', handleCellClick);
     restartBtn.addEventListener('click', resetGame);
