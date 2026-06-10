@@ -55,10 +55,19 @@ h1 {
   min-height: 44px;
   border: 1px solid #ccc;
   font-size: 2rem;
-  cursor: pointer;
+  cursor: default;
   user-select: none;
   -webkit-user-select: none;
   background: #fff;
+}
+
+/* Empty cell: pointer cursor + hover tint */
+.cell:not(.cell-x):not(.cell-o) {
+  cursor: pointer;
+}
+
+.cell:not(.cell-x):not(.cell-o):hover {
+  background: #f3f4f6;
 }
 
 /* Player mark styles */
