@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var winCombo = checkWin();
     if (winCombo) {
+      winCombo.forEach(function (i) {
+        cells[i].classList.add('cell-winner');
+      });
       status.textContent = 'Player ' + currentPlayer + ' wins!';
       gameOver = true;
     } else if (checkDraw()) {
