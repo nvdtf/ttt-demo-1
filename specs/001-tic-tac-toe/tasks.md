@@ -107,6 +107,25 @@ game.js       # Game logic and DOM interaction
 
 ---
 
+## Phase 7: Delta — Probe Feedback (R100, R101)
+
+**Purpose**: Apply decided probe-feedback requirements from delta loop 1
+
+**Context**: After the probe was deployed and reviewed, two new requirements were ratified:
+- **R100** (D5, 100% weighted): Bold retro visual style — thick grid lines, rounded corners (replaces the hairline grid from T002)
+- **R101** (D7, 70% weighted): Ghost preview of current player's mark on hover (replaces the background tint hover from T016)
+
+### Implementation for Delta
+
+- [ ] T018 [US3] Update board grid styling from hairline borders to bold retro style: increase border width to 4–6px, add border-radius to cells or grid segments, and ensure thick lines remain centered and responsive at 320px viewport in style.css
+- [ ] T019 [P] [US3] Add ghost preview CSS: style for showing the current player's mark at reduced opacity (~0.3) on hover using a data attribute selector (e.g., .cell[data-hover="X"]::after with content "X" and .cell-x color, .cell[data-hover="O"]::after with content "O" and .cell-o color), and remove or replace the existing .cell:hover background tint from T016 in style.css
+- [ ] T020 [US3] Implement ghost preview hover logic: add mouseover listener on board container (event delegation) that sets data-hover attribute to currentPlayer value on empty cells when gameOver is false, and mouseout listener that removes the data-hover attribute; ensure ghost preview is cleared on resetGame() in game.js
+- [ ] T021 Validate R100 (bold retro grid with thick lines and rounded corners in style.css) and R101 (ghost preview hover showing current player's mark in game.js and style.css) in a browser, including mobile viewport at 320px width
+
+**Checkpoint**: Delta requirements applied — bold retro grid and ghost hover previews working
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
@@ -117,17 +136,19 @@ game.js       # Game logic and DOM interaction
 - **US2 (Phase 4)**: Depends on Phase 2 (resetGame) — independent of US1
 - **US3 (Phase 5)**: CSS tasks (T012, T014, T016) depend on Phase 1 only; JS tasks (T013, T015) depend on US1 implementation
 - **Polish (Phase 6)**: Depends on all user stories being complete
+- **Delta (Phase 7)**: Depends on Phase 5 (US3) being complete — modifies style.css (T018, T019) and game.js (T020)
 
 ### User Story Dependencies
 
 - **User Story 1 (P1)**: Depends on Foundational (Phase 2) — no dependency on other stories
 - **User Story 2 (P2)**: Depends on Foundational (Phase 2) — resetGame() is already in Phase 2, so US2 is a single wiring task
 - **User Story 3 (P3)**: CSS tasks are independent; JS tasks depend on US1 handleCellClick and checkWin existing
+- **Delta (R100, R101)**: Modifies existing US3 styling and hover behavior — depends on Phase 5 completion
 
-### Within Each User Story
+### Within Each Phase
 
 - Sequential within game.js (same file — cannot parallelize)
-- CSS tasks in US3 can run in parallel with each other and ahead of JS tasks
+- CSS tasks in US3/Delta can run in parallel with each other when targeting independent selectors
 
 ### Parallel Opportunities
 
@@ -136,20 +157,22 @@ game.js       # Game logic and DOM interaction
 - **Phase 3**: All sequential (same file, each builds on previous)
 - **Phase 4**: Single task
 - **Phase 5**: T012, T014, T016 can all run in parallel (different CSS concerns); T013 depends on T012 existing; T015 depends on T014 existing
+- **Phase 7**: T018 and T019 can run in parallel (independent CSS concerns); T020 depends on T019 (needs data-hover CSS selectors to exist); T021 depends on all delta tasks
 
 ---
 
-## Parallel Example: User Story 3
+## Parallel Example: Delta Phase
 
 ```text
-# CSS tasks — all in style.css but independent selectors, can be written together:
-T012: Add .cell-x and .cell-o color classes in style.css
-T014: Add .cell-winner highlight class in style.css
-T016: Add cell hover effect in style.css
+# CSS tasks — independent selectors, can be written together:
+T018: Update grid to bold retro style in style.css
+T019: Add ghost preview CSS with data-hover selectors in style.css
 
-# Then JS tasks — sequential, same file:
-T013: Apply mark classes in game.js (needs T012)
-T015: Apply winner class in game.js (needs T014)
+# Then JS task — depends on CSS selectors existing:
+T020: Implement ghost preview hover logic in game.js (needs T019)
+
+# Then validation:
+T021: Validate R100 and R101 in browser
 ```
 
 ---
@@ -171,7 +194,8 @@ T015: Apply winner class in game.js (needs T014)
 3. Add US2 → restart without reload
 4. Add US3 → visual polish (colors, highlights, hover)
 5. Polish → full validation pass
-6. Each story adds value without breaking previous stories
+6. Delta → apply probe feedback (bold retro grid, ghost hover)
+7. Each story/delta adds value without breaking previous stories
 
 ---
 
@@ -181,5 +205,6 @@ T015: Apply winner class in game.js (needs T014)
 - [Story] label maps task to specific user story for traceability
 - All game logic lives in game.js; all styling in style.css; all markup in index.html
 - No test framework — validation is manual per quickstart.md
-- Research.md decisions baked into tasks: plain text marks, inline status text, hairline grid, blue/red palette, hover tint
-- Commit after each phase completion
+- Research.md decisions baked into tasks: plain text marks, inline status text, blue/red palette
+- Delta decisions override probe defaults: bold retro grid (was hairline), ghost preview hover (was background tint)
+- Commit after each task or logical group

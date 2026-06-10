@@ -37,23 +37,28 @@ h1 {
   min-height: 1.5em;
 }
 
-/* Board — CSS Grid, vmin-based sizing */
+/* Board — CSS Grid, bold retro style with thick lines */
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
   width: 80vmin;
   max-width: 360px;
   aspect-ratio: 1;
+  background: #333;
+  border-radius: 12px;
+  padding: 5px;
 }
 
-/* Cells — hairline borders, 44px min touch target */
+/* Cells — rounded, 44px min touch target */
 .cell {
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 44px;
   min-height: 44px;
-  border: 1px solid #ccc;
+  border: none;
+  border-radius: 8px;
   font-size: 2rem;
   cursor: default;
   user-select: none;
