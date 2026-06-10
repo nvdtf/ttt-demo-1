@@ -57,7 +57,7 @@ game.js       # Game logic and DOM interaction
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] Implement handleCellClick(event) using event delegation on the board container: extract cell from event target, read data-index, validate target is a cell, cell is empty (board[index] === null), and gameOver is false in game.js
+- [x] T006 [US1] Implement handleCellClick(event) using event delegation on the board container: extract cell from event target, read data-index, validate target is a cell, cell is empty (board[index] === null), and gameOver is false in game.js
 - [ ] T007 [US1] Implement mark placement inside handleCellClick: set board[index] to currentPlayer, update cell textContent to currentPlayer value in game.js
 - [ ] T008 [US1] Implement checkWin() function that iterates WINNING_COMBOS, checks if all three indices in any combo match currentPlayer, and returns the winning combo array (or null) in game.js
 - [ ] T009 [US1] Implement checkDraw() function that returns true when every board element is non-null and checkWin() returns null in game.js
