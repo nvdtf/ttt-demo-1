@@ -1,5 +1,5 @@
 {
-  "phase": "PROBE_LIVE",
+  "phase": "FEEDBACK",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
@@ -421,50 +421,14 @@
         "status": "conflict"
       },
       {
-        "dimension": "D5",
-        "winner": "b",
-        "weighted_pct": 100,
-        "status": "decided"
-      },
-      {
         "dimension": "D6",
         "winner": "c",
         "weighted_pct": 50,
         "status": "conflict"
-      },
-      {
-        "dimension": "D7",
-        "winner": "c",
-        "weighted_pct": 70,
-        "status": "decided"
       }
     ],
-    "clarifications": [
-      {
-        "question": "Board visual style",
-        "answer": "Bold retro style (thick lines, rounded)",
-        "weighted_pct": 100,
-        "provenance": "D5"
-      },
-      {
-        "question": "Cell hover \u0026 placement feel",
-        "answer": "Ghost preview of mark on hover",
-        "weighted_pct": 70,
-        "provenance": "D7"
-      }
-    ],
-    "requirements": [
-      {
-        "id": "R100",
-        "text": "The game board MUST use a bold retro visual style with thick grid lines and rounded corners on cells or grid segments.",
-        "provenance": "probe: 100% weighted (D5)"
-      },
-      {
-        "id": "R101",
-        "text": "Each empty cell MUST display a ghost preview of the current player's mark (X or O) on hover, disappearing when the cursor leaves the cell.",
-        "provenance": "probe: 70% weighted (D7)"
-      }
-    ],
+    "clarifications": [],
+    "requirements": [],
     "deferred": [
       "D2",
       "D3",
@@ -662,7 +626,7 @@
       "worker_runs": 1
     }
   },
-  "sessions": 61,
+  "sessions": 65,
   "history": [
     {
       "from": "IDLE",
@@ -759,6 +723,12 @@
       "to": "PROBE_LIVE",
       "at": "2026-06-10T21:32:41.280429Z",
       "note": "probe live at https://nvdtf.github.io/ttt-demo-1/, feedback issue #47"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-10T21:35:33.87104Z",
+      "note": "round 2: 0 delta requirements"
     }
   ]
 }
