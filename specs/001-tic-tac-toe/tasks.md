@@ -120,7 +120,7 @@ game.js       # Game logic and DOM interaction
 - [x] T018 [US3] Update board grid styling from hairline borders to bold retro style: increase border width to 4–6px, add border-radius to cells or grid segments, and ensure thick lines remain centered and responsive at 320px viewport in style.css
 - [x] T019 [P] [US3] Add ghost preview CSS: style for showing the current player's mark at reduced opacity (~0.3) on hover using a data attribute selector (e.g., .cell[data-hover="X"]::after with content "X" and .cell-x color, .cell[data-hover="O"]::after with content "O" and .cell-o color), and remove or replace the existing .cell:hover background tint from T016 in style.css
 - [ ] T020 [US3] Implement ghost preview hover logic: add mouseover listener on board container (event delegation) that sets data-hover attribute to currentPlayer value on empty cells when gameOver is false, and mouseout listener that removes the data-hover attribute; ensure ghost preview is cleared on resetGame() in game.js
-- [ ] T021 Validate R100 (bold retro grid with thick lines and rounded corners in style.css) and R101 (ghost preview hover showing current player's mark in game.js and style.css) in a browser, including mobile viewport at 320px width
+- [x] T021 Validate R100 (bold retro grid with thick lines and rounded corners in style.css) and R101 (ghost preview hover showing current player's mark in game.js and style.css) in a browser, including mobile viewport at 320px width
 
 **Checkpoint**: Delta requirements applied — bold retro grid and ghost hover previews working
 
