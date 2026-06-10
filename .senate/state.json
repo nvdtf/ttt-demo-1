@@ -1,5 +1,5 @@
 {
-  "phase": "FEEDBACK",
+  "phase": "DONE",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
@@ -729,6 +729,12 @@
       "to": "FEEDBACK",
       "at": "2026-06-10T21:35:33.87104Z",
       "note": "round 2: 0 delta requirements"
+    },
+    {
+      "from": "FEEDBACK",
+      "to": "DONE",
+      "at": "2026-06-10T21:35:37.608016Z",
+      "note": "feature complete"
     }
   ]
 }
