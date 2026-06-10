@@ -43,7 +43,7 @@ game.js       # Game logic and DOM interaction
 **CRITICAL**: No user story work can begin until this phase is complete
 
 - [x] T004 Implement game state variables (board: Array(9).fill(null), currentPlayer: 'X', gameOver: false) and WINNING_COMBOS constant (8 triples: 3 rows, 3 columns, 2 diagonals) in game.js
-- [ ] T005 Implement resetGame() function that fills board array with null, sets currentPlayer to 'X', sets gameOver to false, clears all cell textContent and CSS classes, and updates status display to "Player X's turn" in game.js
+- [x] T005 Implement resetGame() function that fills board array with null, sets currentPlayer to 'X', sets gameOver to false, clears all cell textContent and CSS classes, and updates status display to "Player X's turn" in game.js
 
 **Checkpoint**: Foundation ready — state management and reset infrastructure in place
 
