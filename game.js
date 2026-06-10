@@ -16,8 +16,19 @@ document.addEventListener('DOMContentLoaded', function () {
     [0, 4, 8], [2, 4, 6]             // diagonals
   ];
 
+  function resetGame() {
+    board.fill(null);
+    currentPlayer = 'X';
+    gameOver = false;
+    cells.forEach(function (cell) {
+      cell.textContent = '';
+      cell.className = 'cell';
+    });
+    status.textContent = "Player X's turn";
+  }
+
   function init() {
-    // TODO: initialize game state and attach event listeners
+    restartBtn.addEventListener('click', resetGame);
   }
 
   init();
