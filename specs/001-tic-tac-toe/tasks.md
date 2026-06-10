@@ -30,7 +30,7 @@ game.js       # Game logic and DOM interaction
 
 **Purpose**: Create the three source files with initial structure
 
-- [ ] T001 Create index.html with HTML5 boilerplate, viewport meta tag, links to style.css and game.js (defer), game container div, 3x3 grid of cell divs (data-index 0-8), status display element showing "Player X's turn", and a restart button in index.html
+- [x] T001 Create index.html with HTML5 boilerplate, viewport meta tag, links to style.css and game.js (defer), game container div, 3x3 grid of cell divs (data-index 0-8), status display element showing "Player X's turn", and a restart button in index.html
 - [ ] T002 [P] Create style.css with CSS reset (box-sizing, margin), mobile-first base styles, CSS Grid board layout (grid-template-columns: repeat(3, 1fr)), cell styling with hairline borders, minimum 44x44px touch targets, board max-width using vmin-based sizing for responsive scaling, and centered page layout in style.css
 - [ ] T003 [P] Create game.js with DOMContentLoaded listener, DOM element references (board container, all cells via querySelectorAll, status element, restart button), and placeholder initialization call in game.js
 
