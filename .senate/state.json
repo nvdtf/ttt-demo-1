@@ -513,6 +513,15 @@
       "review_cycles": 0,
       "worker_runs": 1
     },
+    "T013": {
+      "id": "T013",
+      "issue": 32,
+      "pr": 33,
+      "branch": "task/T013",
+      "status": "in_review",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
     "T014": {
       "id": "T014",
       "issue": 28,
@@ -532,7 +541,7 @@
       "worker_runs": 1
     }
   },
-  "sessions": 41,
+  "sessions": 43,
   "history": [
     {
       "from": "IDLE",
