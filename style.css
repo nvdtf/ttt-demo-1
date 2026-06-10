@@ -1,0 +1,122 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base styles */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  color: #222;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.status {
+  font-size: 1.125rem;
+  min-height: 1.5em;
+}
+
+/* Board — CSS Grid, bold retro style with thick lines */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  width: 80vmin;
+  max-width: 360px;
+  aspect-ratio: 1;
+  background: #333;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+/* Cells — rounded, 44px min touch target */
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: none;
+  border-radius: 8px;
+  font-size: 2rem;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  background: #fff;
+}
+
+/* Empty cell: pointer cursor + hover tint */
+.cell:not(.cell-x):not(.cell-o) {
+  cursor: pointer;
+}
+
+/* Ghost preview of current player's mark on hover (pointer devices only) */
+@media (hover: hover) {
+  .cell[data-hover="X"]::after {
+    content: "X";
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+
+  .cell[data-hover="O"]::after {
+    content: "O";
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+}
+
+/* Player mark styles */
+.cell-x {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.cell-o {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* Winning cell highlight */
+.cell-winner {
+  background-color: #bbf7d0;
+}
+
+/* Restart button */
+.restart-btn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.restart-btn:active {
+  background: #f0f0f0;
+}

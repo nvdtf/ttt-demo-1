@@ -1,9 +1,752 @@
 {
-  "phase": "IDLE",
+  "phase": "BUILDING",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
   "speckit_version": "v0.10.1",
-  "delta_loops": 0,
-  "sessions": 1
+  "idea": "build tic-tac-toe",
+  "idea_issue": 1,
+  "feature_branch": "001-tic-tac-toe",
+  "feature_dir": "specs/001-tic-tac-toe",
+  "feature_pr": 2,
+  "questionnaire_issue": 3,
+  "dimensions": [
+    {
+      "id": "D1",
+      "title": "Responsive strategy",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Desktop-only (≥768 px assumed)"
+        },
+        {
+          "key": "b",
+          "label": "Mobile-first responsive (phone → desktop)"
+        },
+        {
+          "key": "c",
+          "label": "Desktop-primary, fluid scaling to mobile"
+        }
+      ],
+      "recommendation": "c",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D2",
+      "title": "Mark rendering",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Plain text characters styled with CSS"
+        },
+        {
+          "key": "b",
+          "label": "Inline SVG marks (line art)"
+        },
+        {
+          "key": "c",
+          "label": "CSS-only shapes (pseudo-elements)"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "option b requires designing/sourcing SVG assets, ~3× markup effort",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D3",
+      "title": "Result announcement method",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Inline text replacing turn indicator"
+        },
+        {
+          "key": "b",
+          "label": "Modal overlay dimming the board"
+        },
+        {
+          "key": "c",
+          "label": "Slide-in banner pushing content"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "option b obscures the board, conflicting with winning-highlight feature",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D4",
+      "title": "Mid-game restart safeguard",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Instant reset, no confirmation"
+        },
+        {
+          "key": "b",
+          "label": "Confirmation prompt when game is in progress"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D5",
+      "title": "Board visual style",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Minimal hairline grid"
+        },
+        {
+          "key": "b",
+          "label": "Bold retro style (thick lines, rounded)"
+        },
+        {
+          "key": "c",
+          "label": "Soft card-based cells with shadows"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D6",
+      "title": "Color palette",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Monochrome (black/white/gray)"
+        },
+        {
+          "key": "b",
+          "label": "Classic two-tone (blue X, red O, white bg)"
+        },
+        {
+          "key": "c",
+          "label": "Dark theme (dark bg, bright accents)"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D7",
+      "title": "Cell hover \u0026 placement feel",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "No hover effect"
+        },
+        {
+          "key": "b",
+          "label": "Subtle background tint on hover"
+        },
+        {
+          "key": "c",
+          "label": "Ghost preview of mark on hover"
+        }
+      ],
+      "recommendation": "c",
+      "cost_note": "",
+      "defer_to_probe": true
+    }
+  ],
+  "dim_tallies": [
+    {
+      "dimension": "D1",
+      "title": "Responsive strategy",
+      "stakes": "HIGH",
+      "winner": "b",
+      "winner_label": "Mobile-first responsive (phone → desktop)",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "b": 70
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D2",
+      "title": "Mark rendering",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Plain text characters styled with CSS",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "b": 50
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "recommendation",
+        "carol": "recommendation"
+      }
+    },
+    {
+      "dimension": "D3",
+      "title": "Result announcement method",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Inline text replacing turn indicator",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 50,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "recommendation",
+        "carol": "recommendation"
+      }
+    },
+    {
+      "dimension": "D4",
+      "title": "Mid-game restart safeguard",
+      "stakes": "MED",
+      "winner": "a",
+      "winner_label": "Instant reset, no confirmation",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "a": 100
+      },
+      "votes": {
+        "alice": "a",
+        "bob": "a",
+        "carol": "a"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D5",
+      "title": "Board visual style",
+      "stakes": "LOW",
+      "winner": "b",
+      "winner_label": "Bold retro style (thick lines, rounded)",
+      "weighted_pct": 100,
+      "status": "decided",
+      "by_choice": {
+        "b": 100
+      },
+      "votes": {
+        "alice": "b",
+        "bob": "b",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "recommendation",
+        "carol": "proxy"
+      }
+    },
+    {
+      "dimension": "D6",
+      "title": "Color palette",
+      "stakes": "LOW",
+      "winner": "c",
+      "winner_label": "Dark theme (dark bg, bright accents)",
+      "weighted_pct": 50,
+      "status": "conflict",
+      "by_choice": {
+        "a": 30,
+        "b": 20,
+        "c": 50
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "b"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "recommendation"
+      }
+    },
+    {
+      "dimension": "D7",
+      "title": "Cell hover \u0026 placement feel",
+      "stakes": "LOW",
+      "winner": "c",
+      "winner_label": "Ghost preview of mark on hover",
+      "weighted_pct": 70,
+      "status": "decided",
+      "by_choice": {
+        "a": 30,
+        "c": 70
+      },
+      "votes": {
+        "alice": "c",
+        "bob": "a",
+        "carol": "c"
+      },
+      "sources": {
+        "alice": "proxy",
+        "bob": "proxy",
+        "carol": "proxy"
+      }
+    }
+  ],
+  "aggregate": {
+    "results": [
+      {
+        "dimension": "D1",
+        "winner": "b",
+        "weighted_pct": 70,
+        "status": "decided"
+      },
+      {
+        "dimension": "D2",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D3",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D4",
+        "winner": "a",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D5",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      },
+      {
+        "dimension": "D6",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      },
+      {
+        "dimension": "D7",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Responsive strategy",
+        "answer": "Mobile-first responsive (phone → desktop)",
+        "weighted_pct": 70,
+        "provenance": "D1"
+      },
+      {
+        "question": "Mid-game restart safeguard",
+        "answer": "Instant reset, no confirmation",
+        "weighted_pct": 100,
+        "provenance": "D4"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R13",
+        "text": "The game layout MUST use a mobile-first responsive design, ensuring full playability on phone-sized viewports (\u003e= 320px width) and scaling up gracefully to desktop viewports.",
+        "provenance": "decided: 70% weighted (D1)"
+      },
+      {
+        "id": "R14",
+        "text": "The restart button MUST reset the board instantly with no confirmation dialog or delay.",
+        "provenance": "decided: 100% weighted (D4)"
+      }
+    ],
+    "deferred": [
+      "D2",
+      "D3",
+      "D5",
+      "D6",
+      "D7"
+    ]
+  },
+  "feedback_issue": 38,
+  "probe_url": "https://nvdtf.github.io/ttt-demo-1/",
+  "delta_loops": 1,
+  "delta_aggregate": {
+    "results": [
+      {
+        "dimension": "D2",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D3",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D5",
+        "winner": "b",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D6",
+        "winner": "c",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D7",
+        "winner": "c",
+        "weighted_pct": 70,
+        "status": "decided"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Board visual style",
+        "answer": "Bold retro style (thick lines, rounded)",
+        "weighted_pct": 100,
+        "provenance": "D5"
+      },
+      {
+        "question": "Cell hover \u0026 placement feel",
+        "answer": "Ghost preview of mark on hover",
+        "weighted_pct": 70,
+        "provenance": "D7"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R100",
+        "text": "The game board MUST use a bold retro visual style with thick grid lines and rounded corners on cells or grid segments.",
+        "provenance": "probe: 100% weighted (D5)"
+      },
+      {
+        "id": "R101",
+        "text": "Each empty cell MUST display a ghost preview of the current player's mark (X or O) on hover, disappearing when the cursor leaves the cell.",
+        "provenance": "probe: 70% weighted (D7)"
+      }
+    ],
+    "deferred": [
+      "D2",
+      "D3",
+      "D6"
+    ]
+  },
+  "tasks": {
+    "T001": {
+      "id": "T001",
+      "issue": 4,
+      "pr": 5,
+      "branch": "task/T001",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T002": {
+      "id": "T002",
+      "issue": 6,
+      "pr": 8,
+      "branch": "task/T002",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T003": {
+      "id": "T003",
+      "issue": 7,
+      "pr": 9,
+      "branch": "task/T003",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T004": {
+      "id": "T004",
+      "issue": 10,
+      "pr": 11,
+      "branch": "task/T004",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T005": {
+      "id": "T005",
+      "issue": 12,
+      "pr": 13,
+      "branch": "task/T005",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T006": {
+      "id": "T006",
+      "issue": 14,
+      "pr": 15,
+      "branch": "task/T006",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T007": {
+      "id": "T007",
+      "issue": 16,
+      "pr": 17,
+      "branch": "task/T007",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T008": {
+      "id": "T008",
+      "issue": 18,
+      "pr": 19,
+      "branch": "task/T008",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T009": {
+      "id": "T009",
+      "issue": 20,
+      "pr": 21,
+      "branch": "task/T009",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T010": {
+      "id": "T010",
+      "issue": 22,
+      "pr": 23,
+      "branch": "task/T010",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T011": {
+      "id": "T011",
+      "issue": 24,
+      "pr": 25,
+      "branch": "task/T011",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T012": {
+      "id": "T012",
+      "issue": 26,
+      "pr": 27,
+      "branch": "task/T012",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T013": {
+      "id": "T013",
+      "issue": 32,
+      "pr": 33,
+      "branch": "task/T013",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T014": {
+      "id": "T014",
+      "issue": 28,
+      "pr": 29,
+      "branch": "task/T014",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T015": {
+      "id": "T015",
+      "issue": 30,
+      "pr": 31,
+      "branch": "task/T015",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T016": {
+      "id": "T016",
+      "issue": 34,
+      "pr": 35,
+      "branch": "task/T016",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T017": {
+      "id": "T017",
+      "issue": 36,
+      "pr": 37,
+      "branch": "task/T017",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T018": {
+      "id": "T018",
+      "issue": 39,
+      "pr": 40,
+      "branch": "task/T018",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T019": {
+      "id": "T019",
+      "issue": 41,
+      "pr": 42,
+      "branch": "task/T019",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T020": {
+      "id": "T020",
+      "issue": 45,
+      "pr": 46,
+      "branch": "task/T020",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    },
+    "T021": {
+      "id": "T021",
+      "issue": 43,
+      "pr": 44,
+      "branch": "task/T021",
+      "status": "merged",
+      "review_cycles": 0,
+      "worker_runs": 1
+    }
+  },
+  "sessions": 61,
+  "history": [
+    {
+      "from": "IDLE",
+      "to": "IDEA",
+      "at": "2026-06-10T20:40:05.111185Z",
+      "note": "idea issue #1"
+    },
+    {
+      "from": "IDEA",
+      "to": "INTERROGATED",
+      "at": "2026-06-10T20:42:43.199943Z",
+      "note": "questionnaire #3 (7 dims), feature PR #2"
+    },
+    {
+      "from": "INTERROGATED",
+      "to": "VOTED",
+      "at": "2026-06-10T20:44:41.774714Z",
+      "note": "7 dims tallied, deferred: D2,D3,D5,D6,D7"
+    },
+    {
+      "from": "VOTED",
+      "to": "SPEC_PATCHED",
+      "at": "2026-06-10T20:45:05.188047Z",
+      "note": "2 clarifications, 2 requirements, deferred: D2,D3,D5,D6,D7"
+    },
+    {
+      "from": "SPEC_PATCHED",
+      "to": "RATIFIED",
+      "at": "2026-06-10T20:46:16.00282Z",
+      "note": "PR #2 labeled ratified"
+    },
+    {
+      "from": "RATIFIED",
+      "to": "PLANNED",
+      "at": "2026-06-10T20:51:46.01368Z",
+      "note": "plan + tasks generated"
+    },
+    {
+      "from": "PLANNED",
+      "to": "ANALYZED",
+      "at": "2026-06-10T20:53:53.209799Z",
+      "note": "analyze passed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T20:53:53.270217Z",
+      "note": "dispatch started"
+    },
+    {
+      "from": "BUILDING",
+      "to": "BUILT",
+      "at": "2026-06-10T21:18:23.363831Z",
+      "note": "all tasks merged"
+    },
+    {
+      "from": "BUILT",
+      "to": "PROBE_LIVE",
+      "at": "2026-06-10T21:18:27.957598Z",
+      "note": "probe live at https://nvdtf.github.io/ttt-demo-1/, feedback issue #38"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-10T21:21:54.868168Z",
+      "note": "round 1: 2 delta requirements"
+    },
+    {
+      "from": "FEEDBACK",
+      "to": "DELTA",
+      "at": "2026-06-10T21:21:54.928902Z",
+      "note": "delta loop 1/2"
+    },
+    {
+      "from": "DELTA",
+      "to": "ANALYZED",
+      "at": "2026-06-10T21:25:47.14154Z",
+      "note": "delta 1 ratified + analyzed"
+    },
+    {
+      "from": "ANALYZED",
+      "to": "BUILDING",
+      "at": "2026-06-10T21:25:47.183528Z",
+      "note": "dispatch started"
+    }
+  ]
 }
