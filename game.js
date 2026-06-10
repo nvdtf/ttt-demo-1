@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cells.forEach(function (cell) {
       cell.textContent = '';
       cell.className = 'cell';
+      cell.removeAttribute('data-hover');
     });
     status.textContent = "Player X's turn";
   }
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     board[index] = currentPlayer;
     cell.textContent = currentPlayer;
     cell.classList.add(currentPlayer === 'X' ? 'cell-x' : 'cell-o');
+    cell.removeAttribute('data-hover');
 
     var winCombo = checkWin();
     if (winCombo) {
@@ -70,9 +72,27 @@ document.addEventListener('DOMContentLoaded', function () {
     return board.every(function (cell) { return cell !== null; }) && checkWin() === null;
   }
 
+  function handleCellEnter(event) {
+    var cell = event.target;
+    if (!cell.classList.contains('cell')) return;
+    var index = parseInt(cell.getAttribute('data-index'), 10);
+    if (board[index] !== null || gameOver) return;
+    cell.setAttribute('data-hover', currentPlayer);
+  }
+
+  function handleCellLeave(event) {
+    var cell = event.target;
+    if (!cell.classList.contains('cell')) return;
+    cell.removeAttribute('data-hover');
+  }
+
   function init() {
     boardEl.addEventListener('click', handleCellClick);
     restartBtn.addEventListener('click', resetGame);
+    cells.forEach(function (cell) {
+      cell.addEventListener('mouseenter', handleCellEnter);
+      cell.addEventListener('mouseleave', handleCellLeave);
+    });
   }
 
   init();

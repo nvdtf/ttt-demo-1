@@ -71,21 +71,23 @@ h1 {
   cursor: pointer;
 }
 
-/* Ghost preview of current player's mark on hover */
-.cell[data-hover="X"]::after {
-  content: "X";
-  color: #3b82f6;
-  font-weight: bold;
-  font-size: 2rem;
-  opacity: 0.3;
-}
+/* Ghost preview of current player's mark on hover (pointer devices only) */
+@media (hover: hover) {
+  .cell[data-hover="X"]::after {
+    content: "X";
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 2rem;
+    opacity: 0.3;
+  }
 
-.cell[data-hover="O"]::after {
-  content: "O";
-  color: #ef4444;
-  font-weight: bold;
-  font-size: 2rem;
-  opacity: 0.3;
+  .cell[data-hover="O"]::after {
+    content: "O";
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 2rem;
+    opacity: 0.3;
+  }
 }
 
 /* Player mark styles */
