@@ -72,6 +72,11 @@ h1 {
   font-weight: bold;
 }
 
+/* Winning cell highlight */
+.cell-winner {
+  background-color: #bbf7d0;
+}
+
 /* Restart button */
 .restart-btn {
   padding: 0.5rem 1.5rem;
