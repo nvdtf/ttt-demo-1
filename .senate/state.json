@@ -1,5 +1,5 @@
 {
-  "phase": "DELTA",
+  "phase": "ANALYZED",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
@@ -699,6 +699,12 @@
       "to": "DELTA",
       "at": "2026-06-10T21:21:54.928902Z",
       "note": "delta loop 1/2"
+    },
+    {
+      "from": "DELTA",
+      "to": "ANALYZED",
+      "at": "2026-06-10T21:25:47.14154Z",
+      "note": "delta 1 ratified + analyzed"
     }
   ]
 }
