@@ -426,13 +426,14 @@
     "T003": {
       "id": "T003",
       "issue": 7,
+      "pr": 9,
       "branch": "task/T003",
       "status": "in_review",
       "review_cycles": 0,
       "worker_runs": 1
     }
   },
-  "sessions": 18,
+  "sessions": 19,
   "history": [
     {
       "from": "IDLE",
