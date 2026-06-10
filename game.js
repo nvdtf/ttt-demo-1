@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var index = parseInt(cell.getAttribute('data-index'), 10);
     if (board[index] !== null) return;
     if (gameOver) return;
+
+    board[index] = currentPlayer;
+    cell.textContent = currentPlayer;
   }
 
   function init() {
