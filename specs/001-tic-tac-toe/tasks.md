@@ -61,7 +61,7 @@ game.js       # Game logic and DOM interaction
 - [x] T007 [US1] Implement mark placement inside handleCellClick: set board[index] to currentPlayer, update cell textContent to currentPlayer value in game.js
 - [x] T008 [US1] Implement checkWin() function that iterates WINNING_COMBOS, checks if all three indices in any combo match currentPlayer, and returns the winning combo array (or null) in game.js
 - [x] T009 [US1] Implement checkDraw() function that returns true when every board element is non-null and checkWin() returns null in game.js
-- [ ] T010 [US1] Implement post-move game flow inside handleCellClick: call checkWin() — if win, update status to "Player [X/O] wins!", set gameOver to true; else call checkDraw() — if draw, update status to "It's a draw!", set gameOver to true; else toggle currentPlayer ('X'<->'O') and update status to "Player [X/O]'s turn" in game.js
+- [x] T010 [US1] Implement post-move game flow inside handleCellClick: call checkWin() — if win, update status to "Player [X/O] wins!", set gameOver to true; else call checkDraw() — if draw, update status to "It's a draw!", set gameOver to true; else toggle currentPlayer ('X'<->'O') and update status to "Player [X/O]'s turn" in game.js
 
 **Checkpoint**: Core game is fully playable — win and draw detection working, moves prevented after game ends
 
