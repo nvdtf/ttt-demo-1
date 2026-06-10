@@ -103,7 +103,7 @@ game.js       # Game logic and DOM interaction
 
 **Purpose**: Final validation and responsive refinements
 
-- [ ] T017 Validate all quickstart.md scenarios (Scenarios 1–7) in a browser, including mobile viewport at 320px width per quickstart.md
+- [x] T017 Validate all quickstart.md scenarios (Scenarios 1–7) in a browser, including mobile viewport at 320px width per quickstart.md
 
 ---
 
