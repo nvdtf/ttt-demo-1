@@ -1,19 +1,181 @@
 {
-  "phase": "IDEA",
+  "phase": "INTERROGATED",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
   "speckit_version": "v0.10.1",
   "idea": "build tic-tac-toe",
   "idea_issue": 1,
+  "feature_branch": "001-tic-tac-toe",
+  "feature_dir": "specs/001-tic-tac-toe",
+  "feature_pr": 2,
+  "questionnaire_issue": 3,
+  "dimensions": [
+    {
+      "id": "D1",
+      "title": "Responsive strategy",
+      "stakes": "HIGH",
+      "options": [
+        {
+          "key": "a",
+          "label": "Desktop-only (≥768 px assumed)"
+        },
+        {
+          "key": "b",
+          "label": "Mobile-first responsive (phone → desktop)"
+        },
+        {
+          "key": "c",
+          "label": "Desktop-primary, fluid scaling to mobile"
+        }
+      ],
+      "recommendation": "c",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D2",
+      "title": "Mark rendering",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Plain text characters styled with CSS"
+        },
+        {
+          "key": "b",
+          "label": "Inline SVG marks (line art)"
+        },
+        {
+          "key": "c",
+          "label": "CSS-only shapes (pseudo-elements)"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "option b requires designing/sourcing SVG assets, ~3× markup effort",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D3",
+      "title": "Result announcement method",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Inline text replacing turn indicator"
+        },
+        {
+          "key": "b",
+          "label": "Modal overlay dimming the board"
+        },
+        {
+          "key": "c",
+          "label": "Slide-in banner pushing content"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "option b obscures the board, conflicting with winning-highlight feature",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D4",
+      "title": "Mid-game restart safeguard",
+      "stakes": "MED",
+      "options": [
+        {
+          "key": "a",
+          "label": "Instant reset, no confirmation"
+        },
+        {
+          "key": "b",
+          "label": "Confirmation prompt when game is in progress"
+        }
+      ],
+      "recommendation": "a",
+      "cost_note": "",
+      "defer_to_probe": false
+    },
+    {
+      "id": "D5",
+      "title": "Board visual style",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Minimal hairline grid"
+        },
+        {
+          "key": "b",
+          "label": "Bold retro style (thick lines, rounded)"
+        },
+        {
+          "key": "c",
+          "label": "Soft card-based cells with shadows"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D6",
+      "title": "Color palette",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "Monochrome (black/white/gray)"
+        },
+        {
+          "key": "b",
+          "label": "Classic two-tone (blue X, red O, white bg)"
+        },
+        {
+          "key": "c",
+          "label": "Dark theme (dark bg, bright accents)"
+        }
+      ],
+      "recommendation": "b",
+      "cost_note": "",
+      "defer_to_probe": true
+    },
+    {
+      "id": "D7",
+      "title": "Cell hover \u0026 placement feel",
+      "stakes": "LOW",
+      "options": [
+        {
+          "key": "a",
+          "label": "No hover effect"
+        },
+        {
+          "key": "b",
+          "label": "Subtle background tint on hover"
+        },
+        {
+          "key": "c",
+          "label": "Ghost preview of mark on hover"
+        }
+      ],
+      "recommendation": "c",
+      "cost_note": "",
+      "defer_to_probe": true
+    }
+  ],
   "delta_loops": 0,
-  "sessions": 2,
+  "sessions": 3,
   "history": [
     {
       "from": "IDLE",
       "to": "IDEA",
       "at": "2026-06-10T20:40:05.111185Z",
       "note": "idea issue #1"
+    },
+    {
+      "from": "IDEA",
+      "to": "INTERROGATED",
+      "at": "2026-06-10T20:42:43.199943Z",
+      "note": "questionnaire #3 (7 dims), feature PR #2"
     }
   ]
 }
