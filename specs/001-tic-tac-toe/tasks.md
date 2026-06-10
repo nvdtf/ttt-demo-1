@@ -75,7 +75,7 @@ game.js       # Game logic and DOM interaction
 
 ### Implementation for User Story 2
 
-- [ ] T011 [US2] Attach click event listener to restart button that calls resetGame() in game.js
+- [x] T011 [US2] Attach click event listener to restart button that calls resetGame() in game.js
 
 **Checkpoint**: Game is replayable without page reload
 
