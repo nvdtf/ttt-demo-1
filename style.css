@@ -1,0 +1,77 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base styles */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  color: #222;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.status {
+  font-size: 1.125rem;
+  min-height: 1.5em;
+}
+
+/* Board — CSS Grid, vmin-based sizing */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80vmin;
+  max-width: 360px;
+  aspect-ratio: 1;
+}
+
+/* Cells — hairline borders, 44px min touch target */
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #ccc;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  background: #fff;
+}
+
+/* Restart button */
+.restart-btn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.restart-btn:active {
+  background: #f0f0f0;
+}
