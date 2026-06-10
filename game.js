@@ -88,11 +88,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function init() {
     boardEl.addEventListener('click', handleCellClick);
+    boardEl.addEventListener('mouseover', handleCellEnter);
+    boardEl.addEventListener('mouseout', handleCellLeave);
     restartBtn.addEventListener('click', resetGame);
-    cells.forEach(function (cell) {
-      cell.addEventListener('mouseenter', handleCellEnter);
-      cell.addEventListener('mouseleave', handleCellLeave);
-    });
   }
 
   init();
