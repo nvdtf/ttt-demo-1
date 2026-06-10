@@ -92,7 +92,7 @@ game.js       # Game logic and DOM interaction
 - [x] T012 [P] [US3] Add .cell-x class (color: #3b82f6 / blue, font-weight bold) and .cell-o class (color: #ef4444 / red, font-weight bold) with appropriate font sizing in style.css
 - [ ] T013 [US3] Apply .cell-x or .cell-o class to cell element when placing a mark in the handleCellClick function in game.js
 - [x] T014 [P] [US3] Add .cell-winner class with background-color highlight (e.g., #bbf7d0 / light green) in style.css
-- [ ] T015 [US3] Apply .cell-winner class to the three winning cells when checkWin() returns a winning combo — iterate the combo indices and add the class in game.js
+- [x] T015 [US3] Apply .cell-winner class to the three winning cells when checkWin() returns a winning combo — iterate the combo indices and add the class in game.js
 - [ ] T016 [P] [US3] Add cell hover effect: .cell:hover background tint (e.g., #f3f4f6) only when cursor is pointer; set cursor: pointer on empty cells in style.css
 
 **Checkpoint**: All visual feedback in place — marks are color-coded, wins highlighted, hover cues active

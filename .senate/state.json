@@ -521,9 +521,18 @@
       "status": "merged",
       "review_cycles": 0,
       "worker_runs": 1
+    },
+    "T015": {
+      "id": "T015",
+      "issue": 30,
+      "pr": 31,
+      "branch": "task/T015",
+      "status": "in_review",
+      "review_cycles": 0,
+      "worker_runs": 1
     }
   },
-  "sessions": 39,
+  "sessions": 41,
   "history": [
     {
       "from": "IDLE",
