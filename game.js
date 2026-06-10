@@ -27,7 +27,16 @@ document.addEventListener('DOMContentLoaded', function () {
     status.textContent = "Player X's turn";
   }
 
+  function handleCellClick(event) {
+    var cell = event.target;
+    if (!cell.classList.contains('cell')) return;
+    var index = parseInt(cell.getAttribute('data-index'), 10);
+    if (board[index] !== null) return;
+    if (gameOver) return;
+  }
+
   function init() {
+    boardEl.addEventListener('click', handleCellClick);
     restartBtn.addEventListener('click', resetGame);
   }
 
