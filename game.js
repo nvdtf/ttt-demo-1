@@ -36,6 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     board[index] = currentPlayer;
     cell.textContent = currentPlayer;
+
+    var winCombo = checkWin();
+    if (winCombo) {
+      status.textContent = 'Player ' + currentPlayer + ' wins!';
+      gameOver = true;
+    } else if (checkDraw()) {
+      status.textContent = "It's a draw!";
+      gameOver = true;
+    } else {
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      status.textContent = "Player " + currentPlayer + "'s turn";
+    }
   }
 
   function checkWin() {
