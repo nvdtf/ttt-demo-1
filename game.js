@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     board[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    cell.classList.add(currentPlayer === 'X' ? 'cell-x' : 'cell-o');
 
     var winCombo = checkWin();
     if (winCombo) {

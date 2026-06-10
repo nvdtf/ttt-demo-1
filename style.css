@@ -61,6 +61,17 @@ h1 {
   background: #fff;
 }
 
+/* Player mark styles */
+.cell-x {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.cell-o {
+  color: #ef4444;
+  font-weight: bold;
+}
+
 /* Restart button */
 .restart-btn {
   padding: 0.5rem 1.5rem;
