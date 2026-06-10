@@ -114,11 +114,17 @@ The game provides clear visual cues: highlighting the winning combination when a
 
 - **Responsive strategy** → Mobile-first responsive (phone → desktop) (70% weighted, D1)
 - **Mid-game restart safeguard** → Instant reset, no confirmation (100% weighted, D4)
+- **Board visual style** → Bold retro style (thick lines, rounded) (100% weighted, D5)
+- **Cell hover & placement feel** → Ghost preview of mark on hover (70% weighted, D7)
+
 
 ## Requirements
 
 - R13: The game layout MUST use a mobile-first responsive design, ensuring full playability on phone-sized viewports (>= 320px width) and scaling up gracefully to desktop viewports. — *provenance: decided: 70% weighted (D1)*
 - R14: The restart button MUST reset the board instantly with no confirmation dialog or delay. — *provenance: decided: 100% weighted (D4)*
+- R100: The game board MUST use a bold retro visual style with thick grid lines and rounded corners on cells or grid segments. — *provenance: probe: 100% weighted (D5)*
+- R101: Each empty cell MUST display a ghost preview of the current player's mark (X or O) on hover, disappearing when the cursor leaves the cell. — *provenance: probe: 70% weighted (D7)*
+
 
 ## Deferred to Probe
 
