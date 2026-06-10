@@ -48,10 +48,8 @@ python3 -m http.server 8000
 
 ### Scenario 2: Draw Game (User Story 1, SC-003)
 
-1. Play moves in this order (cell indices): X→0, O→1, X→2, O→4, X→3, O→6, X→7, O→8, X→5.
-2. Board state: `X O X / X O _ / O _ X` — wait, let me give a valid draw sequence:
-   - X→0, O→1, X→2, O→3, X→4, O→8, X→6, O→2... (cells already taken — use this sequence instead):
-   - X→4, O→0, X→2, O→6, X→3, O→5, X→1, O→7, X→8.
+1. Play moves in this order (cell indices): X→4, O→0, X→2, O→6, X→3, O→5, X→1, O→7, X→8.
+2. Final board state: `O X X / X X O / O O X` — all nine cells filled, no three-in-a-row for either player.
 3. **Expected outcome**: Status announces a draw. No cells are highlighted. Further clicks are ignored.
 
 ### Scenario 3: Restart During Play (User Story 2)
