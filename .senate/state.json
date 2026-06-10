@@ -1,5 +1,5 @@
 {
-  "phase": "PROBE_LIVE",
+  "phase": "FEEDBACK",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
@@ -205,8 +205,8 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
-        "carol": "proxy"
+        "bob": "recommendation",
+        "carol": "recommendation"
       }
     },
     {
@@ -228,8 +228,8 @@
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
-        "carol": "proxy"
+        "bob": "recommendation",
+        "carol": "recommendation"
       }
     },
     {
@@ -258,22 +258,21 @@
       "dimension": "D5",
       "title": "Board visual style",
       "stakes": "LOW",
-      "winner": "a",
-      "winner_label": "Minimal hairline grid",
-      "weighted_pct": 50,
-      "status": "deferred",
+      "winner": "b",
+      "winner_label": "Bold retro style (thick lines, rounded)",
+      "weighted_pct": 100,
+      "status": "decided",
       "by_choice": {
-        "a": 50,
-        "b": 50
+        "b": 100
       },
       "votes": {
         "alice": "b",
-        "bob": "a",
-        "carol": "a"
+        "bob": "b",
+        "carol": "b"
       },
       "sources": {
         "alice": "proxy",
-        "bob": "proxy",
+        "bob": "recommendation",
         "carol": "proxy"
       }
     },
@@ -281,41 +280,42 @@
       "dimension": "D6",
       "title": "Color palette",
       "stakes": "LOW",
-      "winner": "a",
-      "winner_label": "Monochrome (black/white/gray)",
+      "winner": "c",
+      "winner_label": "Dark theme (dark bg, bright accents)",
       "weighted_pct": 50,
-      "status": "deferred",
+      "status": "conflict",
       "by_choice": {
-        "a": 50,
+        "a": 30,
+        "b": 20,
         "c": 50
       },
       "votes": {
         "alice": "c",
         "bob": "a",
-        "carol": "a"
+        "carol": "b"
       },
       "sources": {
         "alice": "proxy",
         "bob": "proxy",
-        "carol": "proxy"
+        "carol": "recommendation"
       }
     },
     {
       "dimension": "D7",
       "title": "Cell hover \u0026 placement feel",
       "stakes": "LOW",
-      "winner": "a",
-      "winner_label": "No hover effect",
-      "weighted_pct": 50,
-      "status": "deferred",
+      "winner": "c",
+      "winner_label": "Ghost preview of mark on hover",
+      "weighted_pct": 70,
+      "status": "decided",
       "by_choice": {
-        "a": 50,
-        "c": 50
+        "a": 30,
+        "c": 70
       },
       "votes": {
         "alice": "c",
         "bob": "a",
-        "carol": "a"
+        "carol": "c"
       },
       "sources": {
         "alice": "proxy",
@@ -406,6 +406,71 @@
   "feedback_issue": 38,
   "probe_url": "https://nvdtf.github.io/ttt-demo-1/",
   "delta_loops": 0,
+  "delta_aggregate": {
+    "results": [
+      {
+        "dimension": "D2",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D3",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D5",
+        "winner": "b",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D6",
+        "winner": "c",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D7",
+        "winner": "c",
+        "weighted_pct": 70,
+        "status": "decided"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Board visual style",
+        "answer": "Bold retro style (thick lines, rounded)",
+        "weighted_pct": 100,
+        "provenance": "D5"
+      },
+      {
+        "question": "Cell hover \u0026 placement feel",
+        "answer": "Ghost preview of mark on hover",
+        "weighted_pct": 70,
+        "provenance": "D7"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R100",
+        "text": "The game board MUST use a bold retro visual style with thick grid lines and rounded corners on cells or grid segments.",
+        "provenance": "probe: 100% weighted (D5)"
+      },
+      {
+        "id": "R101",
+        "text": "Each empty cell MUST display a ghost preview of the current player's mark (X or O) on hover, disappearing when the cursor leaves the cell.",
+        "provenance": "probe: 70% weighted (D7)"
+      }
+    ],
+    "deferred": [
+      "D2",
+      "D3",
+      "D6"
+    ]
+  },
   "tasks": {
     "T001": {
       "id": "T001",
@@ -561,7 +626,7 @@
       "worker_runs": 1
     }
   },
-  "sessions": 47,
+  "sessions": 51,
   "history": [
     {
       "from": "IDLE",
@@ -622,6 +687,12 @@
       "to": "PROBE_LIVE",
       "at": "2026-06-10T21:18:27.957598Z",
       "note": "probe live at https://nvdtf.github.io/ttt-demo-1/, feedback issue #38"
+    },
+    {
+      "from": "PROBE_LIVE",
+      "to": "FEEDBACK",
+      "at": "2026-06-10T21:21:54.868168Z",
+      "note": "round 1: 2 delta requirements"
     }
   ]
 }
