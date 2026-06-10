@@ -1,9 +1,19 @@
 {
-  "phase": "IDLE",
+  "phase": "IDEA",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
   "speckit_version": "v0.10.1",
+  "idea": "build tic-tac-toe",
+  "idea_issue": 1,
   "delta_loops": 0,
-  "sessions": 1
+  "sessions": 1,
+  "history": [
+    {
+      "from": "IDLE",
+      "to": "IDEA",
+      "at": "2026-06-10T20:40:05.111185Z",
+      "note": "idea issue #1"
+    }
+  ]
 }
