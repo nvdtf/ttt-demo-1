@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
     return null;
   }
 
+  function checkDraw() {
+    return board.every(function (cell) { return cell !== null; }) && checkWin() === null;
+  }
+
   function init() {
     boardEl.addEventListener('click', handleCellClick);
     restartBtn.addEventListener('click', resetGame);
