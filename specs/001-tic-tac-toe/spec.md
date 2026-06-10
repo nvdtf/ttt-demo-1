@@ -109,3 +109,23 @@ The game provides clear visual cues: highlighting the winning combination when a
 - No sound effects or animations beyond the specified visual feedback are required.
 - No score tracking across multiple games is required for this version.
 - Accessibility beyond visual distinction of marks is out of scope for this version.
+
+## Clarifications
+
+- **Responsive strategy** → Mobile-first responsive (phone → desktop) (70% weighted, D1)
+- **Mid-game restart safeguard** → Instant reset, no confirmation (100% weighted, D4)
+
+## Requirements
+
+- R13: The game layout MUST use a mobile-first responsive design, ensuring full playability on phone-sized viewports (>= 320px width) and scaling up gracefully to desktop viewports. — *provenance: decided: 70% weighted (D1)*
+- R14: The restart button MUST reset the board instantly with no confirmation dialog or delay. — *provenance: decided: 100% weighted (D4)*
+
+## Deferred to Probe
+
+These dimensions are **intentionally deferred**: the group reacts to the deployed probe instead of predicting from text.
+
+- D2 — Mark rendering (a: Plain text characters styled with CSS · b: Inline SVG marks (line art) · c: CSS-only shapes (pseudo-elements))
+- D3 — Result announcement method (a: Inline text replacing turn indicator · b: Modal overlay dimming the board · c: Slide-in banner pushing content)
+- D5 — Board visual style (a: Minimal hairline grid · b: Bold retro style (thick lines, rounded) · c: Soft card-based cells with shadows)
+- D6 — Color palette (a: Monochrome (black/white/gray) · b: Classic two-tone (blue X, red O, white bg) · c: Dark theme (dark bg, bright accents))
+- D7 — Cell hover & placement feel (a: No hover effect · b: Subtle background tint on hover · c: Ghost preview of mark on hover)
