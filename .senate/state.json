@@ -1,5 +1,5 @@
 {
-  "phase": "VOTED",
+  "phase": "SPEC_PATCHED",
   "backend": "real",
   "repo_name": "ttt-demo-1",
   "repo_slug": "nvdtf/ttt-demo-1",
@@ -324,6 +324,85 @@
       }
     }
   ],
+  "aggregate": {
+    "results": [
+      {
+        "dimension": "D1",
+        "winner": "b",
+        "weighted_pct": 70,
+        "status": "decided"
+      },
+      {
+        "dimension": "D2",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D3",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "conflict"
+      },
+      {
+        "dimension": "D4",
+        "winner": "a",
+        "weighted_pct": 100,
+        "status": "decided"
+      },
+      {
+        "dimension": "D5",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      },
+      {
+        "dimension": "D6",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      },
+      {
+        "dimension": "D7",
+        "winner": "a",
+        "weighted_pct": 50,
+        "status": "deferred"
+      }
+    ],
+    "clarifications": [
+      {
+        "question": "Responsive strategy",
+        "answer": "Mobile-first responsive (phone → desktop)",
+        "weighted_pct": 70,
+        "provenance": "D1"
+      },
+      {
+        "question": "Mid-game restart safeguard",
+        "answer": "Instant reset, no confirmation",
+        "weighted_pct": 100,
+        "provenance": "D4"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R13",
+        "text": "The game layout MUST use a mobile-first responsive design, ensuring full playability on phone-sized viewports (\u003e= 320px width) and scaling up gracefully to desktop viewports.",
+        "provenance": "decided: 70% weighted (D1)"
+      },
+      {
+        "id": "R14",
+        "text": "The restart button MUST reset the board instantly with no confirmation dialog or delay.",
+        "provenance": "decided: 100% weighted (D4)"
+      }
+    ],
+    "deferred": [
+      "D2",
+      "D3",
+      "D5",
+      "D6",
+      "D7"
+    ]
+  },
   "delta_loops": 0,
   "sessions": 7,
   "history": [
@@ -344,6 +423,12 @@
       "to": "VOTED",
       "at": "2026-06-10T20:44:41.774714Z",
       "note": "7 dims tallied, deferred: D2,D3,D5,D6,D7"
+    },
+    {
+      "from": "VOTED",
+      "to": "SPEC_PATCHED",
+      "at": "2026-06-10T20:45:05.188047Z",
+      "note": "2 clarifications, 2 requirements, deferred: D2,D3,D5,D6,D7"
     }
   ]
 }
